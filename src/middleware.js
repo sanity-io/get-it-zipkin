@@ -1,5 +1,8 @@
 const objectAssign = require('object-assign')
-const {HttpHeaders, Annotation} = require('zipkin')
+const zipkin = require('zipkin')
+
+const HttpHeaders = zipkin.HttpHeaders
+const Annotation = zipkin.Annotation
 
 module.exports = (opts = {}) => {
   if (!opts || !opts.tracer || typeof opts.tracer.scoped !== 'function') {

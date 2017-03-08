@@ -1,5 +1,5 @@
-const {Tracer, ExplicitContext} = require('zipkin')
-const {describe, before, after, it} = require('mocha')
+const zipkinTracer = require('zipkin')
+const mocha = require('mocha')
 const chai = require('chai')
 const express = require('express')
 const sinon = require('sinon')
@@ -8,6 +8,9 @@ const debug = require('get-it/lib/middleware/debug')
 const promise = require('get-it/lib/middleware/promise')
 const jsonResponse = require('get-it/lib/middleware/jsonResponse')
 const zipkin = require('../src/middleware')
+
+const Tracer = zipkinTracer.Tracer
+const ExplicitContext = zipkinTracer.ExplicitContext
 
 const expect = chai.expect
 chai.config.includeStack = true
@@ -19,8 +22,8 @@ const middleware = opts => [
   zipkin(opts)
 ]
 
-describe('get-it-zipkin', () => {
-  before(function (done) {
+mocha.describe('get-it-zipkin', () => {
+  mocha.before(function (done) {
     const app = express()
     app.post('/user', (req, res) => res.status(202).json({
       traceId: req.header('X-B3-TraceId') || '?',
@@ -33,16 +36,16 @@ describe('get-it-zipkin', () => {
     })
   })
 
-  after(function (done) {
+  mocha.after(function (done) {
     this.server.close(done)
   })
 
-  it('checks for valid tracer', () => {
+  mocha.it('checks for valid tracer', () => {
     expect(() => getIt(middleware({tracer: null}))).to.throw(/requires a `tracer` option/)
     expect(() => getIt(middleware({tracer: {}}))).to.throw(/requires a `tracer` option/)
   })
 
-  it('should add instrumentation to "get-it"', function (done) {
+  mocha.it('should add instrumentation to "get-it"', function (done) {
     const record = sinon.spy()
     const recorder = {record}
     const ctxImpl = new ExplicitContext()
@@ -97,7 +100,7 @@ describe('get-it-zipkin', () => {
     })
   })
 
-  it('skips ServerAddr annotation if remote service name is not given', function (done) {
+  mocha.it('skips ServerAddr annotation if remote service name is not given', function (done) {
     const record = sinon.spy()
     const recorder = {record}
     const ctxImpl = new ExplicitContext()
@@ -149,7 +152,7 @@ describe('get-it-zipkin', () => {
     })
   })
 
-  it('allows remote service name to be provided through request options', function (done) {
+  mocha.it('allows remote service name to be provided through request options', function (done) {
     const record = sinon.spy()
     const recorder = {record}
     const ctxImpl = new ExplicitContext()
@@ -202,7 +205,7 @@ describe('get-it-zipkin', () => {
     })
   })
 
-  it('should add error instrumentation to "get-it"', function (done) {
+  mocha.it('should add error instrumentation to "get-it"', function (done) {
     const record = sinon.spy()
     const recorder = {record}
     const ctxImpl = new ExplicitContext()
