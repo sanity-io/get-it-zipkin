@@ -16,7 +16,7 @@ const getIt = require('get-it')
 const zipkin = require('get-it-zipkin')
 
 const tracer = new Tracer({
-  ...
+  // ...
 })
 
 const request = getIt([
