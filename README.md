@@ -1,5 +1,8 @@
 # get-it-zipkin
 
+[![npm version](http://img.shields.io/npm/v/get-it-zipkin.svg?style=flat-square)](http://browsenpm.org/package/get-it-zipkin)[![Build Status](http://img.shields.io/travis/sanity-io/get-it-zipkin/master.svg?style=flat-square)](https://travis-ci.org/sanity-io/get-it-zipkin)
+
+
 Zipkin instrumentation middleware for [get-it](https://github.com/sanity-io/get-it)
 
 ## Installation

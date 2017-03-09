@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/rexxars/get-it-zipkin.git"
+    "url": "git+ssh://git@github.com/sanity-io/get-it-zipkin.git"
   },
   "keywords": [
     "zipkin",
@@ -17,12 +17,12 @@
     "instrumentation",
     "tracing"
   ],
-  "author": "Espen Hovlandsdal <espen@hovlandsdal.com>",
+  "author": "Sanity.io <hello@sanity.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rexxars/get-it-zipkin/issues"
+    "url": "https://github.com/sanity-io/get-it-zipkin/issues"
   },
-  "homepage": "https://github.com/rexxars/get-it-zipkin#readme",
+  "homepage": "https://github.com/sanity-io/get-it-zipkin#readme",
   "dependencies": {
     "object-assign": "^4.1.1",
     "zipkin": "^0.6.1"
