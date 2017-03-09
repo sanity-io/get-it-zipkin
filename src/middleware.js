@@ -4,13 +4,14 @@ const zipkin = require('zipkin')
 const HttpHeaders = zipkin.HttpHeaders
 const Annotation = zipkin.Annotation
 
-module.exports = (opts = {}) => {
+module.exports = opts => {
   if (!opts || !opts.tracer || typeof opts.tracer.scoped !== 'function') {
     throw new Error('get-it-zipkin requires a `tracer` option')
   }
 
   const serviceName = opts.serviceName || 'unknown'
-  const {remoteServiceName, tracer} = opts
+  const remoteServiceName = opts.remoteServiceName
+  const tracer = opts.tracer
 
   return {
     processOptions: options => {
