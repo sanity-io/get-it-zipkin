@@ -29,7 +29,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "eslint": "^3.17.1",
+    "eslint": "^4.18.2",
     "eslint-config-sanity": "^2.0.2",
     "express": "^4.15.2",
     "get-it": "^1.0.4",
