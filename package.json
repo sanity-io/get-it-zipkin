@@ -1,6 +1,6 @@
 {
   "name": "get-it-zipkin",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Zipkin instrumentation middleware for get-it",
   "main": "src/middleware.js",
   "scripts": {
