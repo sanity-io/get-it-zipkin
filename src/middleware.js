@@ -1,4 +1,3 @@
-const objectAssign = require('object-assign')
 const zipkin = require('zipkin')
 
 const HttpHeaders = zipkin.HttpHeaders
@@ -27,15 +26,17 @@ module.exports = opts => {
         tracer.recordAnnotation(new Annotation.ClientSend())
 
         if (remoteService) {
-          tracer.recordAnnotation(new Annotation.ServerAddr({
-            serviceName: remoteService
-          }))
+          tracer.recordAnnotation(
+            new Annotation.ServerAddr({
+              serviceName: remoteService
+            })
+          )
         }
 
         const traceHeaders = getHeaders(traceId)
 
         const existing = options.headers || {}
-        options.headers = objectAssign({}, existing, traceHeaders)
+        options.headers = {...existing, ...traceHeaders}
         options.traceId = traceId
       })
 

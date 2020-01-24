@@ -6,6 +6,9 @@
   "scripts": {
     "test": "nyc --reporter=lcov mocha"
   },
+  "engines": {
+    "node": ">=10.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/sanity-io/get-it-zipkin.git"
@@ -24,17 +27,16 @@
   },
   "homepage": "https://github.com/sanity-io/get-it-zipkin#readme",
   "dependencies": {
-    "object-assign": "^4.1.1",
-    "zipkin": "^0.6.1"
+    "zipkin": "^0.19.1"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "^3.17.1",
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
     "eslint-config-sanity": "^2.0.2",
     "express": "^4.15.2",
-    "get-it": "^1.0.4",
-    "mocha": "^3.2.0",
-    "nyc": "^10.1.2",
-    "sinon": "^1.17.7"
+    "get-it": "^5.0.2",
+    "mocha": "^7.0.0",
+    "nyc": "^15.0.0",
+    "sinon": "^8.1.1"
   }
 }
